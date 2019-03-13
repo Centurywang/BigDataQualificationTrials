@@ -117,6 +117,9 @@ function drawRamChart(){
 
     // 使用刚指定的配置项和数据显示图表。
     ramChart.setOption(ramOption);
+
+
+
 }
 
 
@@ -154,7 +157,33 @@ function drawRomChart(){
 //手机操作系统销售量统计
 
 function drawOsChart(){
+    // 基于准备好的dom，初始化echarts实例
+    var osChart = echarts.init(document.getElementById('osChart'));
+    // 指定图表的配置项和数据
+     // 指定图表的配置项和数据
+    var cpuOption = {
+        title : {
+            text: '手机操作系统销售量统计',
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        series : [
+            {
+                name: '手机操作系统销售量',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                     {% for r in tsoc_res %}{ value : {{r.fld_sale_count}},name : "{{r.fld_os_name}}"  },{% endfor %}
+                ]
+            }
+        ]
+    };
 
+    // 使用刚指定的配置项和数据显示图表。
+    osChart.setOption(osOption);
 }
 
 

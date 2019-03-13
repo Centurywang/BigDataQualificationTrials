@@ -19,17 +19,15 @@ class Config:
 
 # 开发环境
 class DevelopmentConfig(Config):
-
-
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://flask:flask@103.124.106.158:3306/flask'
 
 # 测试环境
 class TestingConfig(Config):
-
-
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://flask:flask@103.124.106.158:3306/flask'
 
 # 生产环境
 class ProductionConfig(Config):
-
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://flask:flask@103.124.106.158:3306/flask'
 
 
 # 配置字典
